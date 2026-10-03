@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Viewport tag: makes the page scale correctly on phones -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huwa — Responsive Layout</title>
+
+  <style>
+  /* ========= MOBILE FIRST STYLES =========
+     These apply to small screens first; bigger screens
+     are adjusted later with media queries. */
+
+  /* body: resets spacing and sets the base font and background */
+  body {
+    margin: 0;                                  /* removes browser default spacing */
+    font-family: Arial, Helvetica, sans-serif;  /* clean readable font */
+    background: #f4f4f4;                         /* light grey base background (mobile) */
+  }
+
+  /* .container: centers the content and limits how wide it gets */
+  .container {
+    max-width: 1100px;   /* stops content stretching too wide on big screens */
+    margin: 40px auto;   /* auto left/right = centered horizontally */
+    padding: 20px;       /* space inside the container */
+    text-align: center;  /* centers the text */
+  }
+
+  /* .wrapper: the flex container that holds the cards */
+  .wrapper {
+    display: flex;          /* makes it a flex container */
+    flex-direction: column; /* MOBILE FIRST: stack the cards vertically (1 column) */
+    gap: 20px;              /* even space between cards */
+  }
+
+  /* .section: one content card */
+  .section {
+    background: #fff;        /* white card background */
+    padding: 20px;           /* inner spacing */
+    border-radius: 12px;     /* soft rounded corners */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+  }
+
+  /* ========= TABLET (600px and up) ========= */
+  @media (min-width: 600px) {
+    body { background: #cfe8ff; }   /* light blue = confirms tablet breakpoint is active */
+
+    .wrapper {
+      flex-direction: row;     /* switch from stacked to a row */
+      flex-wrap: wrap;         /* let cards wrap onto the next row */
+      justify-content: center; /* center the cards */
+    }
+
+    .section { width: 45%; }   /* ~2 columns (45% leaves room for the gap) */
+  }
+
+  /* ========= DESKTOP (900px and up) ========= */
+  @media (min-width: 900px) {
+    body { background: #d8ffd8; }   /* light green = confirms desktop breakpoint */
+
+    .section { width: 30%; }        /* ~3 columns across */
+  }
+
+  /* ========= LARGE DESKTOP (1200px and up) ========= */
+  @media (min-width: 1200px) {
+    body { background: #ffe0f0; }   /* light pink = confirms large-desktop breakpoint */
+
+    .section { width: 22%; }        /* ~4 columns (22% leaves room for the gap) */
+  }
+  </style>
+</head>
+
+<body>
+  <!-- .container centers everything and limits the width -->
+  <div class="container">
+
+    <h1>Huwa — Keeping Nubian Culture Alive</h1>
+    <p>Resize your browser window to see the layout and background color change.</p>
+
+    <!-- .wrapper holds the 4 content cards -->
+    <div class="wrapper">
+
+      <div class="section">
+        <h2>The Nubian Language</h2>
+        <p>Short videos that teach the words of our ancestors, one lesson at a time.</p>
+      </div>
+
+      <div class="section">
+        <h2>Nubian Food</h2>
+        <p>Traditional recipes like Jabori bread, baked the old way in hot sand.</p>
+      </div>
+
+      <div class="section">
+        <h2>Colors &amp; Dress</h2>
+        <p>The meaning behind the bright colors of the traditional Garjar and Toub.</p>
+      </div>
+
+      <div class="section">
+        <h2>Music &amp; Stories</h2>
+        <p>The songs, sayings, and stories that keep Nubian heritage alive.</p>
+      </div>
+
+    </div><!-- /.wrapper -->
+  </div><!-- /.container -->
+</body>
+</html>
